@@ -19,6 +19,7 @@ export default function App() {
   const deleteTodo = (id) => {
     setTodos((prev) => prev.filter((prevTodo) => (prevTodo.id!==id)))
   }
+  //filter true statement return karta hai , to not equall to bhut sari hongi na to vo unhe return kar dega
 
   const toggleComplete = (id) => {
     // console.log(id)
