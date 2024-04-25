@@ -1,3 +1,4 @@
 import InputBox from "./InputBox";
+import { LampContainer } from "./ui/lamp";
 
-export {InputBox}
+export {InputBox , LampContainer}
