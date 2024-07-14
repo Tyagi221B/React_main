@@ -33,7 +33,7 @@ function TodoForm() {
       />
       <Button
         type="submit"
-        className=""
+        className="cursor-pointer"
       >
         Add
       </Button>

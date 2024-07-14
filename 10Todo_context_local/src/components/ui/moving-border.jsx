@@ -1,28 +1,34 @@
 import { motion, useAnimationFrame, useMotionTemplate, useMotionValue, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { cn } from "../../utils/cn"; 
+import React from "react"; // Import React to use createElement
 
 export function Button({
   borderRadius = "1.75rem",
   children,
-  as = "button",
+  as = "button", // Default element type is button
   containerClassName,
   borderClassName,
   duration,
   className,
   ...otherProps
 }) {
-  return (
-    <as
-      className={cn(
+  const Component = as; // Store the element type in a variable
+
+  // Use React.createElement to dynamically create the element
+  return React.createElement(
+    Component,
+    {
+      className: cn(
         "bg-transparent relative text-xl h-12 w-40 p-[1px] overflow-hidden ",
         containerClassName
-      )}
-      style={{
+      ),
+      style: {
         borderRadius: borderRadius,
-      }}
-      {...otherProps}
-    >
+      },
+      ...otherProps, // Spread otherProps to pass attributes like type
+    },
+    <>
       <div
         className="absolute inset-0"
         style={{ borderRadius: `calc(${borderRadius} * 0.96)` }}
@@ -48,7 +54,7 @@ export function Button({
       >
         {children}
       </div>
-    </as>
+    </>
   );
 }
 
